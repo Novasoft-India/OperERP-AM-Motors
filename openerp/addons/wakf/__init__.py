@@ -1,0 +1,8 @@
+import wakf_registration
+import wakf_locations
+import wakf_immovable_property
+import wakf_movable_property
+import wakf_management
+import wakf_assesment
+import wakf_assesment_heads
+import wakf_type

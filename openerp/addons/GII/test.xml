@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+    <data>
+    
+            
+            <record model="ir.ui.view" id="trainee_tree_view">
+                <field name="name">trainee.tree</field>
+                <field name="model">trainee</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="trainee_form_view">
+                <field name="name">trainee.form</field>
+                <field name="model">trainee</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string" version="7.0">
+                    <sheet>
+                       <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name" string="First Name"/>                                                               
+                            </div>
+                            <h1>
+                            <field name="name"/> 
+                            </h1>
+                                                 
+                            
+                            <div class="oe_edit_only">                                
+                                <label for="gii_middlename" string="Middle Name"/>                                                              
+                            </div>
+                            <h1>                            
+                            <field name="gii_middlename"/> 
+                            </h1>
+                                                 
+                            
+                            <div class="oe_edit_only">                               
+                                <label for="gii_lastname" string="Last Name"/>                               
+                            </div>
+                            <h1>                           
+                            <field name="gii_lastname"/>    
+                                                        
+                            </h1>
+                       </div>
+                       <group>
+                       <group col="4">  
+                   
+                      <label for="gii_address1" string="Address"/> 
+                                     
+                     <div>                                                              	                     	
+                     	<field name="gii_address2" placeholder="Street..."/>                     	
+                      	<field name="gii_address3" placeholder="Street address..."/>                                          	                 
+                      	<field name="gii_city" placeholder="City" style="width: 51%%"/>
+                      	<field name="gii_state" class="oe_no_button" placeholder="State" style="width: 47%%" options='{"no_open": True}'/>
+                        <field name="gii_zip" placeholder="ZIP" style="width: 34%%"/>
+                        <field name="gii_national_id" placeholder="Country"/>
+                      	</div>        
+                      	</group>           
+                    <group>
+                     <field name="gii_suffix"/> 
+                     <field name="gii_salutation_id"/>                    
+                     <field name="gii_address"/> 
+                     <field name="gii_trainepin"/>
+                     <field name="gii_customerid"/>                     
+                    </group>
+                    </group>
+                    
+                      <notebook position="inside">
+               				 <page string="Personal Details">
+               				 <group>
+               				 <group>
+               				 <field name="gii_phonecode"/>
+               				 <field name="gii_phone"/>
+               				 <field name="gii_directphone"/>
+               				 <field name="gii_mobile"/>
+               				 <field name="gii_fax"/>
+               				 <field name="gii_email"/>
+                             <field name="gii_secemail"/>
+                             </group>
+                             <group>                             
+                             <field name="gii_gender"/>
+                             <field name="gii_dobirth"/>
+                             <field name="gii_nationality_id"/>
+                             <field name="gii_lang"/>
+                             <field name="gii_areaofintrest"/>
+                             </group>
+                             </group>                             
+                             </page>  
+                             
+                             <page string="Public Information">
+               				 <group>
+               				 <field name="gii_idtype_id"/>
+               				 <field name="gii_idnumber"/>
+               				 <field name="gii_employ"/>
+               				 <field name="gii_jobtitle"/>
+               				 <field name="gii_dept"/>
+               				 <field name="gii_membership_id"/>
+               				 <field name="gii_joiningdate"/>
+               				 <field name="gii_expirydate"/>
+                             </group>
+                             </page>                           
+                      </notebook>       
+                   </sheet>
+                 </form>
+               </field>
+            </record>
+            
+        <record id="seq_product_auto_type" model="ir.sequence.type">
+            <field name="name">trainee</field>
+            <field name="code">trainee</field>
+        </record>
+
+        <record id="seq_product_auto" model="ir.sequence">
+            <field name="name">trainee</field>
+            <field name="code">trainee</field>
+            <field eval="5" name="padding"/>
+            <field name="prefix">TR</field>
+        </record>
+
+            <record model="ir.actions.act_window" id="action_trainee_tree_view">
+                <field name="name">trainee</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">trainee</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="trainee_tree_view"/>
+            </record>
+
+			<menuitem id="trainee_menu" name="Trainee" parent="base.menu_sales" action="action_trainee_tree_view"/>
+
+    
+    </data>
+</openerp>
+

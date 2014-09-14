@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	  
+            
+            <record model="ir.ui.view" id="hr.qualification_tree_view">
+                <field name="name">hr.qualification.tree</field>
+                <field name="model">hr.qualification</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="sl_no"/>
+                        <field name="exam_passed"/>
+                        <field name="university"/>
+                        <field name="year_of_passing"/>
+                        <field name="register_no"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="hr.qualification_form_view">
+                <field name="name">hr.qualification.form</field>
+                <field name="model">hr.qualification</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <field name="sl_no"/>
+                        <field name="exam_passed"/>
+                        <field name="university"/>
+                        <field name="year_of_passing"/>
+                        <field name="register_no"/>
+                    </form>
+                </field>
+            </record>
+
+            
+
+    
+    </data>
+</openerp>

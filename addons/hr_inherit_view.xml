@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+               
+            <record id="view_hr_employee_form_view" model="ir.ui.view">
+                <field name="name">hr.employee.form.inherit</field>
+                <field name="model">hr.employee</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="hr.view_employee_form"/>
+                <field name="arch" type="xml">
+                    <notebook position="inside">
+               				 <page string="Career Details">
+               				               				 	         				    
+               				            <field name="test_name_id" />
+                                     			 
+                			 </page>
+                			
+                			 <page string="Training Details">
+               				               				 	         				    
+               				            <field name="test_training" />
+               				         
+                                     			 
+                			 </page>
+                			 <page string="Educational Qualifications">
+               				               				 	         				    
+               				         	<field name="edu_qualif" />
+                                     			 
+                			 </page>
+                		  	 
+                     </notebook> 
+                     <page string="Personal Information" groups="base.group_hr_user" position="inside">
+                              
+                                    <group string="Personal Memoranda">
+                                        <field name="father_name"/>
+                                        <field name="hus_wife_name"/>
+                                        <field name="religion_name"/>
+                                        <field name="class_or_race_name"/>
+                                        <field name="community_name"/>
+                                        <field name="scheduled_cast"/>
+                                        <field name="scheduled_tribe"/>
+                                        <field name="backward_community"/>
+                                        <field name="appoint_date"/>
+                                        <field name="superannuation_date"/>
+                                        <field name="appointment_details"/>
+                                        
+                                        
+                                  
+                                    </group>
+                                    
+                                    <group string="Personal mark Of Identification" name="active_group" position="inside">
+                                        <field name="identification_mark_1"/>
+                                        <field name="identification_mark_2"/>
+                                        
+                        
+                                    </group>
+                                    
+                               </page>
+                     
+                </field>
+            </record>
+            
+            
+            
+ 
+    </data>
+</openerp>

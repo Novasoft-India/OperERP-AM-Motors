@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_normal_form_view" model="ir.ui.view">
+            <field name="name">product.normal.form.inherit</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>           
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">            
+                   
+                   <xpath expr="//div[@class='oe_edit_only']" position="replace">
+                	
+                    <div class="oe_edit_only">
+                        <label for="name" string="Course Name"/>
+                    </div>
+                	</xpath>
+                   
+                   <field name="sale_ok" position="attributes">
+                   <attribute name="invisible">True</attribute> </field> 
+                   <label for="sale_ok" position="attributes">
+                   <attribute name="invisible">True</attribute> </label>
+               
+                   
+                   <field name="ean13" position="attributes">
+                   <attribute name="invisible">True</attribute> </field>                      
+                     
+                     <field name="type" position="before">
+                        <field name="gii_cc"/>
+                         <field name="gii_ver"/>
+                        <field name="gii_effect"/>
+                        <field name="gii_with"/>
+                        <field name="gii_assmnt_id"/>
+                     </field>                 
+                     
+                     <field name="default_code" position="after">
+                        <field name="gii_target_id"/>
+                        <field name="gii_language" />
+                        <field name="gii_glh"/>
+                     </field>
+                                        
+                      <field name="gii_glh" position="after">
+                        <field name="gii_reccomended_study"/>
+                        <field name="gii_qf_id"/> 
+                         <field name="gii_minimum_attendance"/>                                                           
+                      </field>
+                      
+                   <div class="oe_right oe_button_box">
+                    <div class="oe_title">
+                    <div class="oe_edit_only">
+                    <label for="gii_qualification_id"/></div></div>          
+                    <field name="gii_qualification_id" /> 
+                    <div class="oe_title">
+                    <div class="oe_edit_only">   
+                    <label for="gii_awardingbody_id"/>    
+                    </div></div>                                
+                    <field name="gii_awardingbody_id"/>
+                    </div>
+                                
+                     
+            <notebook position="inside">
+               				 <page string="Accreditations">
+               				 <field colspan="4" name="gii_credit_id" />
+                             </page> 
+                             <page string="Grading">
+               				 <field colspan="4" name="gii_grading_id" />
+                             </page> 
+                             <page string="Course Tutors">
+               				 <field colspan="4" name="gii_coursetutors_id" />
+                             </page>
+                             <page string="Events">
+               				 <field colspan="4" name="gii_events_id" />
+                             </page>
+                              <page string="Fees">
+               				 <field colspan="4" name="gii_fees_id" />
+                             </page>
+                             <page string="Resources">
+               				 <field colspan="4" name="gii_resources_id" />
+                             </page>
+                             <page string="More Info">  
+                             <group >             				
+               				 <field name="gii_name"/>
+               				 <field name="gii_lo"/>
+                             </group>
+                             </page>
+              </notebook>			 
+            </field>
+       </record>
+      <record id="view_accreditations_form" model="ir.ui.view">
+            <field name="name">gii.accreditations.form</field>
+            <field name="model">gii.accreditations</field>
+            <field name="arch" type="xml">
+                <form string="accreditations">                    
+                  <field  name="name" />
+                             
+               				 <field  name="gii_accfrom" />
+               				 <field  name="gii_accto" />
+               				 <field  name="gii_qua" />
+               				 <field  name="gii_level" />          				 
+               				 <field  name="gii_amt" />
+               				 <field  name="gii_pmr" />
+               				 <field  name="gii_cur" />
+               				 <field  name="gii_fee" />  
+               				 <field  name="gii_submissiondate" /> 
+               				 <field  name="gii_accreremarks" /> 
+               				                      
+                </form>
+           </field>
+        </record>
+        
+        <record id="view_accreditations_tree" model="ir.ui.view">
+            <field name="name">gii.accreditations.tree</field>
+            <field name="model">gii.accreditations</field>
+            <field name="arch" type="xml">
+                <tree string="accreditations">
+                             <field  name="name" />
+                             <field  name="gii_accfrom" />
+               				 <field  name="gii_accto" />
+               				 <field  name="gii_qua" />
+               				 <field  name="gii_level" />          				 
+               				 <field  name="gii_amt" />
+               				 <field  name="gii_pmr" />
+               				 <field  name="gii_cur" />
+               				 <field  name="gii_fee" /> 
+               				 <field  name="gii_submissiondate" /> 
+               				 <field  name="gii_accreremarks" />
+                </tree>
+            </field>
+        </record>       
+                
+        
+         <record id="view_fees_form" model="ir.ui.view">
+            <field name="name">gii.fee.form</field>
+            <field name="model">gii.fee</field>
+            <field name="arch" type="xml">
+                <form string="fees">                    
+                  <field  name="name"/>
+                  <field  name="gii_eventtype"/>
+                  <field  name="gii_hrs"/>
+                  <field  name="gii_city"/>
+                  <field  name="gii_curr"/>
+                  <field  name="gii_feee"/> 
+                  <field  name="gii_gd"/>
+                  <field  name="gii_bd"/>
+                  <field  name="gii_md"/>
+                  <field  name="gii_remarks"/>                                    
+               				 
+               				                        
+                </form>
+           </field>
+        </record>
+        <record id="view_fees_tree" model="ir.ui.view">
+            <field name="name">gii.fee.tree</field>
+            <field name="model">gii.fee</field>
+            <field name="arch" type="xml">
+                <tree string="fees">
+                 <field  name="name"/>
+                 <field  name="gii_eventtype"/>
+                  <field  name="gii_hrs"/>
+                  <field  name="gii_city"/>
+                  <field  name="gii_curr"/>
+                  <field  name="gii_feee"/> 
+                  <field  name="gii_gd"/>
+                  <field  name="gii_bd"/>
+                  <field  name="gii_md"/>
+                  <field  name="gii_remarks"/>
+                              
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_resources_form" model="ir.ui.view">
+            <field name="name">gii.resources.form</field>
+            <field name="model">gii.resources</field>
+            <field name="arch" type="xml">
+                <form string="resources">                    
+                  <field  name="name" />
+                  <field  name="gii_supplier" />
+                  <field  name="gii_curren" />
+                  <field  name="gii_cost" />                            
+               	  <field  name="gii_expense" />			 
+               				                        
+                </form>
+           </field>
+        </record>
+        
+        <record id="view_resources_tree" model="ir.ui.view">
+            <field name="name">gii.resources.tree</field>
+            <field name="model">gii.resources</field>
+            <field name="arch" type="xml">
+                <tree string="resources">
+                  <field  name="name" />
+                  <field  name="gii_supplier" />
+                  <field  name="gii_curren" />
+                  <field  name="gii_cost" />
+                  </tree>
+            </field>
+        </record>       
+        
+        
+            
+            <record model="ir.ui.view" id="coursetutors_tree_view">
+                <field name="name">gii.coursetutors.tree</field>
+                <field name="model">gii.coursetutors</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="course">
+                        <field name="name"/>
+                        <field name="gii_tutor_employee"/>
+                        <field name="gii_tutor"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="coursetutors_form_view">
+                <field name="name">gii.coursetutors.form</field>
+                <field name="model">gii.coursetutors</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="course">
+                        <field name="name" select="1"/>
+                        <field name="gii_tutor_employee"/>
+                        <field name="gii_tutor"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_coursetutors_tree_view">
+                <field name="name">gii.coursetutors</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.coursetutors</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="coursetutors_tree_view"/>
+            </record>
+			
+          
+    </data>
+</openerp>
+
+
+            
+           

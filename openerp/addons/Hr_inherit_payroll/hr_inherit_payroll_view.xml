@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	    <record id="view_hr_contract_form_view" model="ir.ui.view">
+                <field name="name">hr.contract.form.inherit</field>
+                <field name="model">hr.contract</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+                <field name="arch" type="xml">
+                    
+                    
+                    <page string="Information" position="inside">
+                    	<group string="Extra Info">
+                         
+                			<field name="x_gp"/>
+                        	<field name="x_festadvance"/>
+                        	<field name="x_pfamount"/>
+                        	<field name="x_pfpercentage"/>
+                        	<field name="x_incometax"/>
+                        	
+                         
+                         </group>
+           			</page>	
+                        
+                        
+                    
+                </field>
+             </record>
+             <record id="view_hr_payslip_form_view" model="ir.ui.view">
+                <field name="name">hr.payslip.form.inherit</field>
+                <field name="model">hr.payslip</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+                <field name="arch" type="xml">
+                    
+                        <field name="credit_note" position="after">
+                        	<field name="x_days"/>
+                        	<field name="x_protax"/>
+                        	<field name="x_pfloan"/>
+                        	
+                        
+                        </field>
+                    
+                </field>
+            </record>
+            <record id="view_hr_employee1_form_view" model="ir.ui.view">
+                <field name="name">hr.employee.form.inherit</field>
+                <field name="model">hr.employee</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="hr.view_employee_form"/>
+                <field name="arch" type="xml">
+                    <page string="Public Information" position="inside">
+                    	<group string="Employee Machine Code">
+                         
+                			<field name="x_code"/>
+                        	
+                                     
+                         </group>
+           			</page>	
+                </field>
+            </record>
+    
+    </data>
+</openerp>
+
+
+           

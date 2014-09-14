@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    		 	<record model="ir.ui.view" id="view_event_form">
+                <field name="name">event.event.form.inherit</field>
+                <field name="model">event.event</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="event.view_event_form"/>
+                <field name="arch" type="xml">
+                    
+                          
+                        <field name="type" position="after">   
+                        <field name="gii_project_id"/>
+                        <field name="gii_public"/>
+                        <field name="gii_lang" />   
+                        </field>      
+                 <notebook position="inside">
+               				 <page string="Results">
+               				 <field colspan="4" name="gii_result_id"/>
+                             </page>
+                             
+                             <page string="Tutors Comments">
+                             <group>
+               				 <field colspan="4" name="gii_comment"/></group>
+                             </page>
+                             
+                             <page string="Session Planning">
+                             <group>
+               				 <field colspan="4" name="gii_sessionplanning_id"/></group>
+                             </page>
+                  </notebook>  
+                  
+         
+                </field>       
+            </record>
+    
+            
+            <record model="ir.ui.view" id="result_tree_view">
+                <field name="name">result.tree</field>
+                <field name="model">result</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                        <field name="gii_customer_id"/>
+                        <field name="gii.attendance.event"/>
+                        <field name="gii.mark.event"/>
+                        <field name="gii.grade.event"/>
+                        <field name="gii.awardcompleted.event"/>
+                        <field name="gii.certificate.event"/>
+                        <field name="gii.remarks.event"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="result_form_view">
+                <field name="name">result.form</field>
+                <field name="model">result</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <field name="name" select="1"/>
+                        <field name="gii_customer_id"/>
+                        <field name="gii.attendance.event"/>
+                        <field name="gii.mark.event"/>
+                        <field name="gii.grade.event"/>
+                        <field name="gii.awardcompleted.event"/>
+                        <field name="gii.certificate.event"/>
+                        <field name="gii.remarks.event"/>
+                    </form>
+                </field>
+            </record>           
+            
+            
+            
+            <record model="ir.ui.view" id="session_tree_view">
+                <field name="name">session.tree</field>
+                <field name="model">session</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                        <field name="gii_timestart"/>
+                        <field name="gii_timeend"/>
+                        <field name="gii_tutor"/>
+                        <field name="gii_subject"/>
+                        <field name="gii_remarks"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="session_form_view">
+                <field name="name">session.form</field>
+                <field name="model">session</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                        <field name="gii_timestart"/>
+                        <field name="gii_timeend"/>
+                        <field name="gii_tutor"/>
+                        <field name="gii_subject"/>
+                        <field name="gii_remarks"/>
+                    </form>
+                </field>
+            </record> 
+            
+            
+            
+            <record model="ir.ui.view" id="sessionplanning_tree_view">
+                <field name="name">sessionplanning.tree</field>
+                <field name="model">sessionplanning</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="gii_freq_id"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="sessionplanning_form_view">
+                <field name="name">sessionplanning.form</field>
+                <field name="model">sessionplanning</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string" version="7.0">
+                        <sheet>
+                        <group>
+                              <group>                                                  
+                             <field name="gii_dur_id"/>                             
+                             <field name="gii_freq_id"/>
+                             <field name="gii_holi"/>                             
+                             </group>
+                             <group>                             
+                              <field name="gii_starttime_id"/>
+                             <field name="gii_endtime_id"/>
+                             <field name="gii_breaktime_id"/>                              
+                             </group>
+                           </group>
+                             <group string="Days Of Week">                             
+                             <div>                             
+                             <field name="gii_sun"/>
+                             <label for="gii_sun" string="SUN"/>
+                             <field name="gii_mon"/>
+                              <label for="gii_mon" string="MON"/>
+                             <field name="gii_tue"/>
+                              <label for="gii_tue" string="TUE"/>
+                             <field name="gii_wed"/>
+                              <label for="gii_wed" string="WED"/>
+                             <field name="gii_thu"/>
+                              <label for="gii_thu" string="THU"/>
+                             <field name="gii_fri"/>
+                              <label for="gii_fri" string="FRI"/>
+                             <field name="gii_sat"/>
+                              <label for="gii_sat" string="SAT"/>
+                             </div>
+                             </group>
+                             
+                             <notebook>
+                             <page string="Session">
+                             <group>
+               				 <field colspan="4" name="gii_session_id"/>
+               				 </group>                             
+                             </page>
+                          </notebook>                          
+                       </sheet>                      
+                      
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_sessionplanning_tree_view">
+                <field name="name">sessionplanning</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">sessionplanning</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="sessionplanning_tree_view"/>
+            </record>
+            		
+   
+			            
+    </data>
+</openerp>

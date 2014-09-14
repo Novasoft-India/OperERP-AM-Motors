@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+            
+            <record model="ir.ui.view" id="test_tree_view">
+                <field name="name">test.tree</field>
+                <field name="model">test</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                        <field name="gii_awardbodycode"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="test_form_view">
+                <field name="name">test.form</field>
+                <field name="model">test</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                        <field name="gii_awardbodycode"/>
+                        <field name="gii_supplierref"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_test_tree_view">
+                <field name="name">test</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">test</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="test_tree_view"/>
+            </record>
+            <menuitem id="base.menu_base_sale" name="Courses" />	 
+            <menuitem id="gii_sale" name="Courses" parent="base.menu_base_sale"/>  
+            <menuitem id="gii_config" name="Configuration" parent="base.menu_base_sale"/>           
+			<menuitem id="test_menu" name="Awarding Body" parent="gii_sale" action="action_test_tree_view"/>
+			
+			<record model="ir.ui.view" id="qualification_tree_view">
+                <field name="name">gii.qualification.tree</field>
+                <field name="model">gii.qualification</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="qualification_form_view">
+                <field name="name">gii.qualification.form</field>
+                <field name="model">gii.qualification</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">                                                
+                        <field name="gii_category_id" select="1"/>
+                        <field name="gii_awarding_id"/> 
+                        <field name="name" />                        
+                        <field name="gii_qualificationcode"/>
+                        <field name="gii_qualidescript"/>
+                        <field name="gii_complerequired"/>
+                        <field name="gii_designationaward"/>
+                        <field name="gii_qflevel_id"/>
+                        <field name="gii_prerequisitest"/>
+                        <field name="gii_units_id"/>
+                        <field name="gii_bundledprice"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_qualification_tree_view">
+                <field name="name">gii.qualification</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.qualification</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="qualification_tree_view"/>
+            </record>
+
+			<menuitem id="qualification_menu" name="Qualification" parent="gii_sale" action="action_qualification_tree_view"/>
+		
+		<record model="ir.ui.view" id="testproduct_tree_view">
+                <field name="name">gii.product.tree</field>
+                <field name="model">gii.product</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="testproduct_form_view">
+                <field name="name">gii.product.form</field>
+                <field name="model">gii.product</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_testproduct_tree_view">
+                <field name="name">gii.product</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.product</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="testproduct_tree_view"/>
+            </record>
+                      
+			 <menuitem name="courses" action="product.product_normal_action_sell" id="product.menu_products" parent="gii_sale" />	
+           
+           <record model="ir.ui.view" id="grading_tree_view">
+                <field name="name">gii.grading.tree</field>
+                <field name="model">gii.grading</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                         <field  name="name" />
+                         <field  name="gii.grades" />
+                  <field  name="gii.op" />
+                  <field  name="gii.from" />
+                  <field  name="gii.to" />
+                  <field  name="gii.symbol" />
+                  <field  name="gii_awardcompleted" />
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="grading_form_view">
+                <field name="name">gii.grading.form</field>
+                <field name="model">gii.grading</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                       <field  name="name" />
+                         <field  name="gii.grades" />
+                  <field  name="gii.op" />
+                  <field  name="gii.from" />
+                  <field  name="gii.to" />
+                  <field  name="gii.symbol" />
+                  <field  name="gii_awardcompleted" /> 
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_grading_tree_view">
+                <field name="name">gii.grading</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.grading</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="grading_tree_view"/>
+            </record>
+
+			<menuitem id="grading_menu" name="Grading" parent="gii_config" action="action_grading_tree_view"/>
+			
+			
+            
+            <record model="ir.ui.view" id="language_tree_view">
+                <field name="name">gii.language.tree</field>
+                <field name="model">gii.language</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="language_form_view">
+                <field name="name">gii.language.form</field>
+                <field name="model">gii.language</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_language_tree_view">
+                <field name="name">gii.language</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.language</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="language_tree_view"/>
+            </record>
+
+			<menuitem id="language_menu" name="Language" parent="gii_config" action="action_language_tree_view"/>
+			
+			 
+			 <record model="ir.ui.view" id="duration_tree_view">
+                <field name="name">gii.duration.tree</field>
+                <field name="model">gii.duration</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="duration_form_view">
+                <field name="name">gii.duration.form</field>
+                <field name="model">gii.duration</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_duration_tree_view">
+                <field name="name">gii.duration</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.duration</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="duration_tree_view"/>
+            </record>
+
+			<menuitem id="duration_menu" name="Duration" parent="gii_config" action="action_duration_tree_view"/>
+			
+			 
+			 
+			 <record model="ir.ui.view" id="service_tree_view">
+                <field name="name">service.tree</field>
+                <field name="model">service</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                        <field name="amount"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="service_form_view">
+                <field name="name">service.form</field>
+                <field name="model">service</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                        <field name="amount"/>
+                        <field name="location"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_service_tree_view">
+                <field name="name">service</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">service</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="service_tree_view"/>
+            </record>
+
+			<menuitem id="service_menu" name="Service Type" parent="gii_config" action="action_service_tree_view"/>
+           
+    <record model="ir.ui.view" id="target_tree_view">
+                <field name="name">gii.target.tree</field>
+                <field name="model">gii.target</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="target_form_view">
+                <field name="name">gii.target.form</field>
+                <field name="model">gii.target</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_target_tree_view">
+                <field name="name">gii.target</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.target</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="target_tree_view"/>
+            </record>
+
+			<menuitem id="target_menu" name="Audience" parent="gii_config" action="action_target_tree_view"/>
+			
+			<record model="ir.ui.view" id="assessment_tree_view">
+                <field name="name">gii.assessment.tree</field>
+                <field name="model">gii.assessment</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="assessment_form_view">
+                <field name="name">gii.assessment.form</field>
+                <field name="model">gii.assessment</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_assessment_tree_view">
+                <field name="name">gii.assessment</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.assessment</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="assessment_tree_view"/>
+            </record>
+                     
+			<menuitem id="assessment_menu" name="Assessment Types" parent="gii_config" action="action_assessment_tree_view"/>
+			
+			<record model="ir.ui.view" id="currency_tree_view">
+                <field name="name">gii.currency.tree</field>
+                <field name="model">gii.currency</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="currency_form_view">
+                <field name="name">gii.currency.form</field>
+                <field name="model">gii.currency</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_currency_tree_view">
+                <field name="name">gii.currency</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gii.currency</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="currency_tree_view"/>
+            </record>
+
+			<menuitem id="base.menu_action_currency_form" name="Currencies" parent="gii_config" groups="base.group_no_one"/>
+			
+			
+			
+			 <record model="ir.ui.view" id="idtype_tree_view">
+                <field name="name">idtype.tree</field>
+                <field name="model">idtype</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="idtype_form_view">
+                <field name="name">idtype.form</field>
+                <field name="model">idtype</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_idtype_tree_view">
+                <field name="name">idtype</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">idtype</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="idtype_tree_view"/>
+            </record>
+            <menuitem id="gii_configure" name="Configuration" parent="gii_config" sequence="1"/>
+			<menuitem id="idtype_menu" name="ID Type" parent="gii_configure" action="action_idtype_tree_view"/>
+			
+			<record model="ir.ui.view" id="levels_tree_view">
+                <field name="name">levels.tree</field>
+                <field name="model">levels</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="levels_form_view">
+                <field name="name">levels.form</field>
+                <field name="model">levels</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_levels_tree_view">
+                <field name="name">levels</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">levels</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="levels_tree_view"/>
+            </record>
+
+			<menuitem id="levels_menu" name="Levels" parent="gii_configure" action="action_levels_tree_view"/>
+			
+
+            
+            <record model="ir.ui.view" id="category_tree_view">
+                <field name="name">category.tree</field>
+                <field name="model">category</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="gii_category_id"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="category_form_view">
+                <field name="name">category.form</field>
+                <field name="model">category</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="gii_category_id" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_category_tree_view">
+                <field name="name">category</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">category</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="category_tree_view"/>
+            </record>
+
+			<menuitem id="category_menu" name="Category" parent="gii_configure" action="action_category_tree_view"/>
+
+            
+            
+            <record model="ir.ui.view" id="frequency_tree_view">
+                <field name="name">frequency.tree</field>
+                <field name="model">frequency</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="frequency_form_view">
+                <field name="name">frequency.form</field>
+                <field name="model">frequency</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_frequency_tree_view">
+                <field name="name">frequency</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">frequency</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="frequency_tree_view"/>
+            </record>
+
+			<menuitem id="frequency_menu" name="Frequency" parent="gii_configure" action="action_frequency_tree_view"/>
+
+            
+            
+            <record model="ir.ui.view" id="time_tree_view">
+                <field name="name">time.tree</field>
+                <field name="model">time</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="time_form_view">
+                <field name="name">time.form</field>
+                <field name="model">time</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_time_tree_view">
+                <field name="name">time</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">time</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="time_tree_view"/>
+            </record>
+
+			<menuitem id="time_menu" name="Time" parent="gii_configure" action="action_time_tree_view"/>
+			
+			
+            
+            <record model="ir.ui.view" id="city_tree_view">
+                <field name="name">city.tree</field>
+                <field name="model">city</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                        <field name="city_code"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="city_form_view">
+                <field name="name">city.form</field>
+                <field name="model">city</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <field name="name" select="1"/>
+                        <field name="city_code"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_city_tree_view">
+                <field name="name">city</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">city</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="city_tree_view"/>
+            </record>
+
+			<menuitem id="city_menu" name="City" parent="gii_configure" action="action_city_tree_view"/>
+
+    </data>
+</openerp>

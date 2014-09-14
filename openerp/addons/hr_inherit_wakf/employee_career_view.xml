@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+          
+            
+            <record model="ir.ui.view" id="hr.career_tree_view">
+                <field name="name">hr.career.tree</field>
+                <field name="model">hr.career</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="career details tree" version="7.0">
+                        <field name="name"/>
+                        <field name="test_attended_id"/>
+                        <field name="register_no_exam"/>
+                        <field name="year_of_passing"/>
+                        <field name="test_result"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="hr.career_form_view">
+                <field name="name">hr.career.form</field>
+                <field name="model">hr.career</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="career details form" version="7.0">
+                        <sheet>
+                      	 <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name" string="serial No"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                         </div>
+                        <group>
+                            <group>
+                                
+                        		<field name="test_attended_id"/>
+                        		<field name="register_no_exam"/>
+                        		<field name="year_of_passing"/>
+                        		<field name="test_result"/>		
+                            </group>
+                            
+                        </group>
+                       </sheet>
+                    </form>
+                </field>
+            </record>
+
+          <!--    <record model="ir.actions.act_window" id="action_hr.career_tree_view">
+                <field name="name">hr.career</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hr.career</field>-->
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="hr.career_tree_view"/>
+            </record>-->
+
+			<!--  <menuitem id="hr.career_menu" name="hr.career" parent="" action="action_hr.career_tree_view"/>-->
+
+    
+    </data>
+</openerp>

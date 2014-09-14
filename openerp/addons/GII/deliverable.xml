@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+            
+            <record model="ir.ui.view" id="deliverables_tree_view">
+                <field name="name">deliverables.tree</field>
+                <field name="model">deliverables</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="name"/>
+                        <field name="gii_location"/>
+                        <field name="gii_minpers"/>
+                        <field name="gii_maxpers"/>
+                        <field name="gii_feepp"/>
+                        <field name="gii_group_disc"/>
+                        <field name="gii_copmpleted"/>
+                        <field name="gii_eventid"/>
+                        
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="deliverables_form_view">
+                <field name="name">deliverables.form</field>
+                <field name="model">deliverables</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="name" select="1"/>
+                        <field name="gii_location"/>
+                        <field name="gii_minpers"/>
+                        <field name="gii_maxpers"/>
+                        <field name="gii_feepp"/>
+                        <field name="gii_group_disc"/>
+                        <field name="gii_copmpleted"/>
+                        <field name="gii_eventid"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_deliverables_tree_view">
+                <field name="name">deliverables</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">deliverables</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="deliverables_tree_view"/>
+            </record>
+
+			<menuitem id="Deliverables_menu" name="Deliverables" parent="base.menu_definitions" action="action_deliverables_tree_view"/>
+
+          <record model="ir.ui.view" id="customer_tree_view">
+                <field name="name">cohorts.tree</field>
+                <field name="model">cohorts</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                   <field name="customer_id"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="customer_form_view">
+                <field name="name">cohorts.form</field>
+                <field name="model">cohorts</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <field name="customer_id" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_customer_tree_view">
+                <field name="name">cohorts</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">cohorts</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="customer_tree_view"/>
+            </record>
+
+			<menuitem id="customer_menu" name="Cohorts" parent="base.menu_definitions" action="action_customer_tree_view"/>
+			
+			<record model="ir.ui.view" id="event_event_tree_view">
+                <field name="name">event.tree</field>
+                <field name="model">event</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree">
+                        <field name="event_id"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="event_event_form_view">
+                <field name="name">event.form</field>
+                <field name="model">event</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form">
+                        <field name="event_id" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_event_event_tree_view">
+                <field name="name">event</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">event</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="event_event_tree_view"/>
+            </record>
+
+			<menuitem id="event_event_menu" name="Event" parent="base.menu_definitions" action="action_event_event_tree_view"/>
+    
+    </data>
+</openerp>

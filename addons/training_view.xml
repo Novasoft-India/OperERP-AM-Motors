@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+             <record model="ir.ui.view" id="hr.training_tree_view">
+                <field name="name">hr.training.tree</field>
+                <field name="model">hr.training</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="training_details_tree" version="7.0">
+                        <field name="name"/>
+                        <field name="course_name"/>
+                        <field name="institution_name"/>
+                        <field name="period_from"/>
+                        <field name="period_to"/>
+                        <field name="remarks_training"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="hr.training_form_view">
+                <field name="name">hr.training.form</field>
+                <field name="model">hr.training</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="training_details_form" version="7.0">
+                    <sheet>
+                      	 <div class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="name" string="serial No"/>
+                            </div>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                         </div>
+                        <group>
+                            <group>
+                                
+                        		<field name="course_name"/>
+                        		<field name="institution_name"/>
+                        		<field name="period_from"/>
+                        		<field name="period_to"/>
+                        		<field name="remarks_training"/>
+       			
+                            </group>
+                            
+                        </group>
+                       </sheet>
+                       
+                    </form>
+                </field>
+            </record>
+          
+    
+    </data>
+</openerp>

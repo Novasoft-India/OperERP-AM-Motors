@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+   
+    
+            
+            <record model="ir.ui.view" id="branch_tree_view">
+                <field name="name">ammotors.branch.tree</field>
+                <field name="model">ammotors.branch</field>               
+                <field name="arch" type="xml">
+                    <tree string="Branch Details">
+                        <field name="name"/>
+                        <field name="address"/>
+                        <field name="latitude"/>
+                        <field name="longitude"/>                                    
+                        
+                        
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="branch_form_view">
+                <field name="name">ammotors.branch.form</field>
+                <field name="model">ammotors.branch</field>                
+                <field name="arch" type="xml">                 
+                    <form string="Branch" version="7.0">
+                        <field name="name" select="1"/>
+                        <field name="address"/>
+                        <field name="latitude"/>
+                        <field name="longitude"/>                        
+                        <notebook colspan="4">
+                                <page string="Employees">
+                                	<field name="employees" nolabel="1"/>                                
+                                </page>                   
+                            
+                            </notebook>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_branch_tree_view">
+                <field name="name">ammotors.branch</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">ammotors.branch</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="branch_tree_view"/>
+            </record>
+<menuitem id="branch_menu" name="Branch" parent="hr.menu_hr_configuration" action="action_branch_tree_view"/>
+			
+
+    </data>
+</openerp>

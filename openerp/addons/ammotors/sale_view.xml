@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="sale_order_form_view_inherit">
+                <field name="name">ammotors.sale.order.form</field>
+                <field name="model">sale.order</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="sale.view_order_form"/>
+                <field name="arch" type="xml">
+                        <field name="pricelist_id" position="after">
+                        	<field name="chase_no" on_change="check_Chasisno(chase_no)"/>
+                    	</field>
+                    	          
+                   
+                    	<notebook position="inside">
+               			<page string="Vechile Details">
+               				 <group colspan="2" col="2" name="selection">
+                              <separator string="Vechile Details" colspan="2"/>
+                              		<field colspan="2" name="vechile_model_id" />
+                   				 	<field colspan="2" name="color_id" />
+                   				 	<field colspan="2" name="registration_mode" />
+                         	 </group>
+                   			 <group name="second" colspan="2" col="2">
+                              	<separator string="Delivery" colspan="2"/>
+                              		<field name="deliver_branch_id"/>
+					<field name="executive_id" />
+                              		<field name="delivery_date"/>                              		
+                          	</group>
+                   		</page>
+                   		<page string="Customer Demand">
+                   			<field colspan="4" name="customer_demand_id" />
+                   		
+                   		</page>
+                     </notebook>
+                </field>
+        </record>
+        
+        <record id="view_customer_demand_form" model="ir.ui.view">
+            <field name="name">ammotors.customerdemand.form</field>
+            <field name="model">ammotors.customerdemand</field>
+            <field name="arch" type="xml">
+                <form string="Customer Demand" version="7.0">                    
+                  <group string="Demands">
+                    <field name="item" />
+                    <field name="description" />  
+                    <field name="pay" />  
+                  </group>                       
+                </form>
+           </field>
+        </record>
+        
+        <record id="view_customer_demand_tree" model="ir.ui.view">
+            <field name="name">ammotors.customerdemand.tree</field>
+            <field name="model">ammotors.customerdemand</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Demand" editable="bottom" >
+                    <field name="item" />
+                    <field name="description" />  
+                    <field name="pay" /> 
+                </tree>
+            </field>
+        </record>
+        
+        
+    
+    </data>
+</openerp>
